@@ -6,8 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          apt install build-essential -y
-          apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev qt5-default -y
+          sudo apt update
+          sudo apt install build-essential -y
+          sudo apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev qt5-default -y
       - run: qmake build.pro
       - run: make -j $(nproc)
       - run: make install INSTALL_ROOT=AppDir
