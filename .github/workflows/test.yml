@@ -8,7 +8,7 @@ jobs:
       - run: |
           sudo apt update
           sudo apt install build-essential -y
-          sudo apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev qt5-default -y
+          sudo apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev -y
       - run: qmake build.pro
       - run: make -j $(nproc)
       - run: make install INSTALL_ROOT=AppDir
@@ -17,3 +17,10 @@ jobs:
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           chmod +x linuxdeploy*.AppImage
       - run: ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt
+      - run: ls -al
+
+      - name: Upload 
+        uses: actions/upload-artifact@main
+        with:
+          name: test
+          path: ./linuxdeploy-x86_64.AppImage
