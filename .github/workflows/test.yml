@@ -12,19 +12,11 @@ jobs:
           sudo apt install build-essential libfuse2 -y
           sudo apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev -y
       - run: qmake build.pro
-      - run: make -j $(nproc)
-
       - run: make install INSTALL_ROOT=AppDir
-      - run: |
-          wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
-          wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
-          chmod +x linuxdeploy*.AppImage
-          sed -i 's!/usr/share/pixmaps/!!g' kikoplay.desktop
-      - run: ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt -e AppDir/usr/bin/KikoPlay -i res/images/kikoplay-4.png -d kikoplay.desktop
-      - run: ls -al && rm linuxdeploy*.AppImage
+      - run: make -j $(nproc)
 
       - name: Upload 
         uses: actions/upload-artifact@main
         with:
-          name: test
+          name: 1
           path: /home/runner/work/KikoPlay/
