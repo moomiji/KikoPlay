@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: '5c9234b'
+          ref: '5c9234bce550cc29ca82552244dc109018388264'
       - run: |
           sudo apt update
           sudo apt install build-essential -y
