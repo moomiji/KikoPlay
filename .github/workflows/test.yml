@@ -12,8 +12,8 @@ jobs:
           sudo apt install build-essential libfuse2 -y
           sudo apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev -y
       - run: qmake build.pro
-      - run: make install INSTALL_ROOT=AppDir
       - run: make -j $(nproc)
+      - run: make install INSTALL_ROOT=AppDir
 
       - name: Upload 
         uses: actions/upload-artifact@main
