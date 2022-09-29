@@ -20,7 +20,9 @@ jobs:
 
       - run: |
           cd KikoPlay
-          ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt -e AppDir/usr/bin/KikoPlay -d kikoplay.desktop -i res/images/kikoplay-4.png
+          cp -f kikoplay.desktop AppDir/usr/share/applications/kikoplay.desktop
+          cp -f res/images/kikoplay-4.png AppDir/usr/share/pixmaps/kikoplay.png
+          ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt
           rm linuxdeploy*.AppImage
           ls -al 
 
