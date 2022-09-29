@@ -18,8 +18,11 @@ jobs:
           sed -i 's!/usr/share/pixmaps/!!g' kikoplay.desktop
           cat kikoplay.desktop
 
-      - run: ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt -e AppDir/usr/bin/KikoPlay -d kikoplay.desktop -i res/images/kikoplay-4.png
-      - run: ls -al && rm linuxdeploy*.AppImage
+      - run: |
+          cd KikoPlay
+          ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt -e AppDir/usr/bin/KikoPlay -d kikoplay.desktop -i res/images/kikoplay-4.png
+          rm linuxdeploy*.AppImage
+          ls -al 
 
       - name: Upload
         uses: actions/upload-artifact@main
