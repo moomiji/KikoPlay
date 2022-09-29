@@ -9,8 +9,8 @@ jobs:
           sudo apt install build-essential libfuse2 -y
           sudo apt install qtbase5-dev qt5-qmake libmpv-dev zlib1g-dev -y
       - run: |
-          wget https://github.com/moomiji/KikoPlay/suites/8523490833/artifacts/379925352
-          unzip *.zip
+          wget https://github.com/moomiji/KikoPlay/releases/download/0.9.0/1.zip
+          unzip 1.zip
           cd KikoPlay
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           tsocks wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
