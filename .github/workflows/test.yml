@@ -18,12 +18,12 @@ jobs:
           sed -i 's!/usr/share/pixmaps/kikoplay.png!kikoplay!g' kikoplay.desktop
           cat kikoplay.desktop
 
+# ? chmod +x AppDir/apprun-hooks/linuxdeploy-plugin-qt-hook.sh 
       - run: |
           cd KikoPlay
           cp -f kikoplay.desktop AppDir/usr/share/applications/kikoplay.desktop
           cp -f res/images/kikoplay-4.png AppDir/usr/share/pixmaps/kikoplay.png
-          ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt
-          chmod +x AppDir/usr/bin/KikoPlay AppDir/apprun-hooks/linuxdeploy-plugin-qt-hook.sh 
+          chmod +x AppDir/usr/bin/KikoPlay
           ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt --output appimage
           rm linuxdeploy*.AppImage
           find /home/runner/work/ -name '*.AppImage'
