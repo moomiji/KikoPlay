@@ -24,10 +24,10 @@ jobs:
           cp -f res/images/kikoplay-4.png AppDir/usr/share/pixmaps/kikoplay.png
           ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt --output appimage
           rm linuxdeploy*.AppImage
-          find -name '*.AppImage'
+          find /home/runner/work/ -name '*.AppImage'
 
       - name: Upload
         uses: actions/upload-artifact@main
         with:
           name: 2
-          path: /home/runner/work/KikoPlay/KikoPlay/KikoPlay-x86_64.AppImage
+          path: /home/runner/work/
